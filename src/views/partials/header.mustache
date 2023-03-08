@@ -1,27 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet O Shop</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <title>Pet-O Shop</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="images/petoshop.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
-<header>
-    <div class="container">
-        <a href="/">Pet o Shop</a>
-        <form method="GET" action="/search">
-            <input type="search" name="q" placeholder="Pesquise por raça" value="{{ query }}"/>
-        </form>
+    <body>
+        <header class="p-3 text-bg-dark">
+            <div class="container">
+              <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                  <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+                </a>
+        
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                  <li><a href="#" class="nav-link px-2 text-secondary">Inicio</a></li>
+                  <li><a href="#" class="nav-link px-2 text-white">Animais para adoção</a></li>
+                  <li><a href="#" class="nav-link px-2 text-white">Sobre nós</a></li>
+                </ul>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method="GET" action="/search">
+                    <input type="search" class="form-control form-control-dark text-bg-dark" name="q" placeholder="Procurando algo?" value= "{{query}}">
+                </form>
+        
+                <div class="text-end">
+                  <button type="button" class="btn btn-outline-light me-2">Entre</button>
+                  <button type="button" class="btn btn-warning">Registrar-se</button>
+                </div>
+              </div>
+            </div>
+          </header>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/">Todos</a>
+        <a class="nav-link" href="/dogs">Cachorros</a>
+        <a class="nav-link" href="/cats">Gatos</a>
+        <a class="nav-link" href="/fishes">Peixes</a>
+      </div>
     </div>
-</header>
-<nav>
-    <ul>
-        <li class="active"><a href="/">Todos</a></li>
-        <li class=""><a href="/dogs">Cachorros</a></li>
-        <li class=""><a href="/cats">Gatos</a></li>
-        <li class=""><a href="/fishes">Peixes</a></li>
-        <li class=""><a href="/caneta">Caneta</a></li>
-    </ul>
+  </div>
 </nav>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

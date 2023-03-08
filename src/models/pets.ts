@@ -126,13 +126,6 @@ const data: Pet[] = [
         color: 'Preto',
         sex: 'Masculino'
     },
-    {
-        type: 'caneta',
-        image: 'emanoelgomesazul.jpg',
-        name: 'Emanoel Gomes',
-        color: 'Azul',
-        sex: 'Caneta'
-    }
 ];
 
 export const Pet = {

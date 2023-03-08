@@ -1,20 +1,38 @@
 {{>partials/header}}
 
 {{#banner}}
-<section class="banner" style="background-image: url('images/{{ background }}')">{{ title }}</section>
-<h2>{{ title }} disponíveis para adoção</h2>
+<section class="banner max-widght:100% height:auto" style="background-image: url('images/{{ background }}'); min-height: 50vh">{{ title }}</section>
+<h2 class="nav justify-content-center p-3">{{ title }} disponíveis para adoção</h2>
 {{/banner}}
 
-<div class="container list">
-    {{#list}}
-    <div class="item">
-        <img src="images/{{image}}" class="item--image" />
-        <div class="item--name">{{name}}</div>
-        <div class="item--color">Cor: {{color}}</div>
-        <div class="item--genre">Gênero: {{sex}}</div>
+<div class="d-flex justify-content-center p-4"> 
+    <div class="row d-flex gap-4 d-flex justify-content-evenly">
+        {{#list}}
+        <div class="col-2 card" >
+            <img src="images/{{image}}">
+            <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p class="card-text">Cor - {{color}}</p>
+            <p class="card-text">Genero - {{sex}}</p>
+            </div>
+        </div>
+        {{/list}}
     </div>
-    {{/list}}
 </div>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled">
+        <a class="page-link">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
 
 {{^list}}
 <div class="container no-list">
