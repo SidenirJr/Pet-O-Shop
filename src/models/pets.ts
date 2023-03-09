@@ -1,3 +1,5 @@
+import { sequelize } from '../instances/mysql'
+
 type Pet = {
     type: 'dog' | 'cat' | 'fish' | 'caneta',
     image: string,
@@ -129,13 +131,35 @@ const data: Pet[] = [
 ];
 
 export const Pet = {
-    getAll: (): Pet[] => {
-        return data;
-    },
-    getFromType: (type: 'dog' | 'cat' | 'fish' | 'caneta'): Pet[] => {
-        return data.filter(item => item.type === type);
-    },
-    getFromName: (name:string): Pet[] => {
-        return data.filter (item => item.name.toLowerCase().indexOf(name.toLowerCase()) > -1);
+    getAll: async() => {
+        try {
+            const allanimals = 'SELECT * FROM animals';
+            const list = await sequelize.query(allanimals)
+            return {success: true, data: list}
+        } catch (e) {
+            return {success: false, error: e}
         }
-    };
+    },
+    getFromType:( type: string) => {
+        return [];
+    },
+
+    getFromName:( type: string) => {
+        return [];
+    },
+};
+    
+//     insertPets: () => {
+//         for (const item of data) {
+//         // for (let i = 0; i < data.length; i++) {
+//             const sql = `INSERT INTO animals (type, name, color, sex) VALUES ('${item.type}', '${item.name}' , '${item.color}', '${item.sex}')`;
+          
+//             sequelize.query(sql).then((result) => {
+                
+//                 console.log(result);
+//             }).catch(err => {
+//                 if (err) throw err;
+//             });
+//         }
+//     }
+// }

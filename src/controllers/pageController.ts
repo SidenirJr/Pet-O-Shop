@@ -1,17 +1,22 @@
 import { Request, Response } from 'express';
 import { createMenuObject } from '../helpers/createMenuObject';
 import { Pet } from '../models/pets';
+import { sequelize }from '../instances/mysql';
 
-export const home = (req: Request, res: Response) => {
-    let list = Pet.getAll();
+export const home = async (req: Request, res: Response) => {
+    let list = await Pet.getAll();
 
+    if (!list.success) {
+        return res.status(200).json({error: list.error})
+    }
+    console.log(list.data)
     res.render('pages/page', {
         menu: createMenuObject('all'),
         banner: {
             title : 'Todos os animais',
             background : 'allanimals.jpg',
         },
-        list
+        list: list.data
     });
 }
 export const dogs = (req: Request, res: Response) => {
