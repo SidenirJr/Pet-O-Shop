@@ -1,15 +1,10 @@
 import { Request, Response } from 'express';
 import { createMenuObject } from '../helpers/createMenuObject';
-import { Pet } from '../models/pets';
+import { AllPet, Types } from '../controllers/animalsController';
 import { sequelize }from '../instances/mysql';
 
 export const home = async (req: Request, res: Response) => {
-    let list = await Pet.getAll();
-
-    if (!list.success) {
-        return res.status(200).json({error: list.error})
-    }
-    console.log(list.data)
+    let list = await AllPet.getAll();
     res.render('pages/page', {
         menu: createMenuObject('all'),
         banner: {
@@ -20,7 +15,7 @@ export const home = async (req: Request, res: Response) => {
     });
 }
 export const dogs = (req: Request, res: Response) => {
-    let list = Pet.getFromType('dog');
+    let list = AllPet.getFromType('dog');
 
     res.render('pages/page', {
         menu: createMenuObject('dog'),
@@ -32,7 +27,7 @@ export const dogs = (req: Request, res: Response) => {
     });
 }
 export const fishes = (req: Request, res: Response) => {
-    let list = Pet.getFromType('fish');
+    let list = AllPet.getFromType('fish');
 
     res.render('pages/page', {
         menu: createMenuObject('fish'),
@@ -44,7 +39,7 @@ export const fishes = (req: Request, res: Response) => {
     });    
 }
 export const cats = (req: Request, res: Response) => {
-    let list = Pet.getFromType('cat');
+    let list = AllPet.getFromType('cat');
 
     res.render('pages/page', {
         menu: createMenuObject('cat'),
@@ -57,7 +52,7 @@ export const cats = (req: Request, res: Response) => {
 }
 
 export const caneta = (req: Request, res: Response) => {
-    let list = Pet.getFromType('caneta');
+    let list = AllPet.getFromType('caneta');
 
     res.render('pages/page', {
         menu: createMenuObject('caneta'),
@@ -67,4 +62,12 @@ export const caneta = (req: Request, res: Response) => {
         },
         list
     })
+}
+
+export const register = (req: Request, res: Response) => {
+    res.render('/register')
+}
+
+export const login = (req: Request, res: Response) => {
+    res.render('/login')
 }

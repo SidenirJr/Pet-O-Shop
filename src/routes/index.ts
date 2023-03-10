@@ -11,5 +11,7 @@ router.get('/fishes', PageController.fishes);
 router.get('/cats', PageController.cats);
 router.get('/caneta', PageController.caneta)
 router.get('/search', SearchController.search);
+router.get('/login', PageController.login);
+router.get('/register', PageController.register);
 
 export default router;

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { Pet } from '../models/pets'
+import { AllPet } from '../controllers/animalsController'
 import { createMenuObject } from '../helpers/createMenuObject';
 
     export const search = (req: Request, res: Response) => {
@@ -10,7 +10,7 @@ import { createMenuObject } from '../helpers/createMenuObject';
             return;
         }
 
-        let list = Pet.getFromName(query);
+        let list = AllPet.getFromName(query);
 
     res.render('pages/page', {
         menu: createMenuObject(''),

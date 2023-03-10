@@ -23,6 +23,16 @@
   </button>
 </div>
 
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Todos os animais</span>
+    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method="GET" action="/search">
+      <input type="search" class="form-control form-control-dark" name="q" placeholder="Procurando algo?" value= "{{query}}">
+    </form>
+  </div>
+</nav>
+
+
 <div class="d-flex justify-content-center p-4"> 
     <div class="row d-flex gap-4 d-flex justify-content-evenly">
         {{#list}}
