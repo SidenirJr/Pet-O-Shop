@@ -1,4 +1,4 @@
-import { sequelize } from '../instances/mysql'
+import knex from '../instances/mysql'
 
 type Pet = {
     type: number,

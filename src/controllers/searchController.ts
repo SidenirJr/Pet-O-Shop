@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { AllPet } from '../controllers/animalsController'
+import { getAll } from '../controllers/animalsController'
 import { createMenuObject } from '../helpers/createMenuObject';
 
     export const search = (req: Request, res: Response) => {
@@ -9,12 +9,12 @@ import { createMenuObject } from '../helpers/createMenuObject';
             res.redirect('/');
             return;
         }
-
-        let list = AllPet.getFromName(query);
-
-    res.render('pages/page', {
-        menu: createMenuObject(''),
-        list,
-        query
-    });
     }
+    //     let list = AllPet.getFromName(query);
+
+    // res.render('pages/page', {
+    //     menu: createMenuObject(''),
+    //     list,
+    //     query
+    // });
+    // }
